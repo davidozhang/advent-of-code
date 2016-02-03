@@ -14,6 +14,11 @@ def cycle(lst, offsets, width, height):
 				on += 1 if lst[i+k[0]][j+k[1]] == 1 else 0
 			if (lst[i][j] == 0 and on == 3) or (lst[i][j] == 1 and on != 2 and on != 3):
 				changed[i][j] = 1
+			# part 2
+			if i == 0 and (j == 0 or j == width-1):
+				changed[i][j] = 0
+			elif i == height-1 and (j == 0 or j == width-1):
+				changed[i][j] = 0
 	for i in xrange(height):
 		for j in xrange(width):
 			if changed[i][j] == 1:
